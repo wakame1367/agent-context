@@ -49,7 +49,8 @@ apm install wakame1367/agent-context --target agent-skills
 
 - `owner/repo` — リポジトリ全体をパッケージとして
 - `owner/repo/path/to/skill` — リポジトリ内の1スキルだけ
-- `owner/repo@ref` / `#ref` — タグ・ブランチ・コミットで pin
+- `owner/repo#ref` — タグ・ブランチ・コミットで pin（未指定は default branch で
+  drift する。consumer 側の lockfile が最終的な固定を担う）
 
 consumer 側では `apm update` で upstream の最新を取り込む。
 
