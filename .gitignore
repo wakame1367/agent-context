@@ -1,0 +1,5 @@
+apm_modules/
+.agents/
+.claude/
+.codex/
+.github/skills/

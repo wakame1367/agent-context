@@ -1,0 +1,33 @@
+name: agent-context
+version: 0.1.0
+description: エージェント横断で使う GitHub 開発ワークフロー系スキルの宣言型メタパッケージ
+author: Yuya Takeyama
+
+# このリポジトリは「宣言型」の集約パッケージ。
+# スキル本体は upstream を参照し、依存解決は consumer 側の apm install が行う。
+# 新しいスキルを載せたいときは dependencies.apm に参照を足して push する。
+
+dependencies:
+  apm:
+    # --- GitHub Actions ---
+    - github/awesome-copilot/skills/github-actions-hardening   # 脅威モデルでレビュー。SHA pin・pull_request_target・script injection
+    - github/awesome-copilot/skills/github-actions-efficiency  # CI コスト・実行時間の監査
+    - github/gh-actions-lock                                   # Actions 依存を verified commit に pin 留めする公式拡張
+    # --- Dependabot ---
+    - github/awesome-copilot/skills/dependabot                 # dependabot.yml 全エコシステム・grouped updates
+    # --- ブランチ・コミット ---
+    - github/awesome-copilot/skills/conventional-branch        # conventionalbranch.org 準拠の命名
+    - github/awesome-copilot/skills/git-flow-branch-creator    # nvie Git Flow モデルのブランチ作成
+    - github/awesome-copilot/skills/git-commit                 # Conventional Commits
+    # --- PR・レビュー・CI ---
+    - github/awesome-copilot/skills/pr-address-feedback        # レビューコメントを1件ずつ対応方針づけ
+    - github/awesome-copilot/skills/rebase-current-branch      # マージ前に default branch へ rebase
+    - sapegin/dotfiles/ai/skills/write-pr-description          # PR description 生成
+    - sapegin/dotfiles/ai/skills/fix-pr-ci                     # PR の CI 失敗を解析・修正
+    - sapegin/dotfiles/ai/skills/github                        # gh CLI の操作規律
+    # --- リリース ---
+    - github/awesome-copilot/skills/github-release             # SemVer + Keep a Changelog
+  mcp: []
+
+includes: auto
+scripts: {}
