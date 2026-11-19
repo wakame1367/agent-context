@@ -1,12 +1,16 @@
 # agent-context
 
-エージェント横断で使う GitHub 開発ワークフロー系スキルの**宣言型メタパッケージ**
+エージェント横断で使う GitHub 開発ワークフロー系スキルの集約パッケージ
 （[APM — Agent Package Manager](https://github.com/microsoft/apm) 形式）。
 
-スキル本体は upstream リポジトリを参照し、`apm.yml` の `dependencies.apm` が
-正（source of truth）。このリポジトリ1つを install すれば、収録スキルがすべて
-consumer の `.agents/skills/` にデプロイされ、Devin・Claude Code・Codex・
-Cursor・GitHub Copilot・Gemini CLI 等どのエージェントからも読まれる。
+構成は2層:
+
+- `.apm/skills/` — **自前スキル**（このリポジトリが本体・正）
+- `apm.yml` の `dependencies.apm` — **upstream スキルへの参照**（宣言型）
+
+このリポジトリ1つを install すれば、収録スキルがすべて consumer の
+`.agents/skills/` にデプロイされ、Devin・Claude Code・Codex・Cursor・
+GitHub Copilot・Gemini CLI 等どのエージェントからも読まれる。
 
 ## 使い方（consumer 側）
 
@@ -23,6 +27,14 @@ apm install wakame1367/agent-context --target agent-skills
 以降は `apm_modules/` キャッシュが効く。
 
 ## 収録内容
+
+### 自前スキル（`.apm/skills/`）
+
+| スキル | 内容 |
+|---|---|
+| `agent-code-quality-guardrails` | 指示文より決定的な仕組み（構造・lint・検証）でエージェントのコード品質を作る方針。Lauren Tan 講演の知見 |
+
+### upstream 参照（`dependencies.apm`）
 
 | 領域 | スキル | 出典 |
 |---|---|---|
@@ -45,7 +57,8 @@ apm install wakame1367/agent-context --target agent-skills
 
 ## スキルの追加・削除
 
-`apm.yml` の `dependencies.apm` を編集して push。参照形式:
+- **自前スキル**: `.apm/skills/<name>/SKILL.md` を作って push（`includes: auto` で出荷される）
+- **upstream 参照**: `apm.yml` の `dependencies.apm` を編集して push。参照形式:
 
 - `owner/repo` — リポジトリ全体をパッケージとして
 - `owner/repo/path/to/skill` — リポジトリ内の1スキルだけ

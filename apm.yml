@@ -1,11 +1,13 @@
 name: agent-context
-version: 0.1.0
-description: エージェント横断で使う GitHub 開発ワークフロー系スキルの宣言型メタパッケージ
+version: 0.2.0
+description: エージェント横断で使う GitHub 開発ワークフロー系スキルの宣言型メタパッケージ＋自前スキル
 author: Yuya Takeyama
+license: MIT
 
-# このリポジトリは「宣言型」の集約パッケージ。
-# スキル本体は upstream を参照し、依存解決は consumer 側の apm install が行う。
-# 新しいスキルを載せたいときは dependencies.apm に参照を足して push する。
+# 構成:
+# - .apm/skills/ ... 自前スキル（このリポジトリが本体・正）
+# - dependencies.apm ... upstream スキルへの参照（宣言型、consumer 側が解決）
+# 新しい upstream スキルを載せたいときは dependencies.apm に参照を足して push する。
 
 dependencies:
   apm:

@@ -1,4 +1,5 @@
 apm_modules/
+build/
 .agents/
 .claude/
 .codex/
