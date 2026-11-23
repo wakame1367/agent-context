@@ -1,5 +1,5 @@
 name: agent-context
-version: 0.2.0
+version: 0.4.0
 description: エージェント横断で使う GitHub 開発ワークフロー系スキルの宣言型メタパッケージ＋自前スキル
 author: Yuya Takeyama
 license: MIT

@@ -33,6 +33,15 @@ apm install wakame1367/agent-context --target agent-skills
 | スキル | 内容 |
 |---|---|
 | `agent-code-quality-guardrails` | 指示文より決定的な仕組み（構造・lint・検証）でエージェントのコード品質を作る方針。Lauren Tan 講演の知見 |
+| `ai-coding-workflow` | エージェント前提の開発規律: タスク分解・コンテキスト管理・TDD・検証中心・環境の最小権限 |
+| `spec-driven-dev` | spec を資産として扱う作法: 条項 ID 化・検証可能な仕様・spec バグの検出 |
+| `skill-authoring` | SKILL.md の書き方: アトム化・有無2アーム eval・冗長/有害項目の除去 |
+| `agent-fleet-ops` | 複数エージェント運用: manager/builder・レビューキャップ・トレース採点・セッション隔離 |
+| `github-agentic-gates` | GitHubをエージェント駆動向けに保護・ゲート化: ruleset必須チェック・環境承認・層別レビュー・ラベル→auto-merge・非自明なハマりどころ |
+
+末尾4つは AI Engineer チャンネル（@aiDotEngineer）の登壇 ~25件を
+文字起こしして抽出した実践集。各項目の出典は
+`.apm/skills/ai-coding-workflow/references/sources.md` を参照。
 
 ### upstream 参照（`dependencies.apm`）
 
