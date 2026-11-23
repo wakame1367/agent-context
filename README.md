@@ -38,6 +38,7 @@ apm install wakame1367/agent-context --target agent-skills
 | `skill-authoring` | SKILL.md の書き方: アトム化・有無2アーム eval・冗長/有害項目の除去 |
 | `agent-fleet-ops` | 複数エージェント運用: manager/builder・レビューキャップ・トレース採点・セッション隔離 |
 | `github-agentic-gates` | GitHubをエージェント駆動向けに保護・ゲート化: ruleset必須チェック・環境承認・層別レビュー・ラベル→auto-merge・非自明なハマりどころ |
+| `agent-telemetry-pipeline` | エージェント横断テレメトリ収集基盤の設計: 統一イベントスキーマ・otelcol→R2・ソース別取り込み（詳細はreferences/design.md） |
 
 末尾4つは AI Engineer チャンネル（@aiDotEngineer）の登壇 ~25件を
 文字起こしして抽出した実践集。各項目の出典は
