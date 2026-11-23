@@ -1,0 +1,27 @@
+name: skill-check
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  skill-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate SKILL.md frontmatter
+        run: |
+          set -e
+          fail=0
+          for f in .apm/skills/*/SKILL.md; do
+            fm=$(awk 'NR==1 && /^---\r?$/{p=1;next} p && /^---\r?$/{exit} p{print}' "$f")
+            if [ -z "$fm" ]; then
+              echo "::error::missing frontmatter: $f"
+              fail=1
+              continue
+            fi
+            echo "$fm" | grep -q '^name:' || { echo "::error::no name field: $f"; fail=1; }
+            echo "$fm" | grep -q '^description:' || { echo "::error::no description field: $f"; fail=1; }
+          done
+          exit $fail
