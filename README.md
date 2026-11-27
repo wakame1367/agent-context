@@ -1,6 +1,6 @@
 # agent-context
 
-エージェント横断で使う GitHub 開発ワークフロー系スキルの集約パッケージ
+エージェント横断で使うスキルの集約パッケージ
 （[APM — Agent Package Manager](https://github.com/microsoft/apm) 形式）。
 
 構成は2層:
@@ -60,6 +60,7 @@ apm install wakame1367/agent-context --target agent-skills
 | PR の CI 修復 | `fix-pr-ci` | 同上 |
 | gh CLI 規律 | `github` | 同上 |
 | リリース | `github-release` | github/awesome-copilot |
+| 日本語推敲 | `yomiyasu` | nanaism/yomiyasu（MIT、v3.4.1 に pin） |
 
 `sapegin/dotfiles` のスキルはライセンス表記がないため**参照利用のみ**
 （このリポジトリにコードはコピーしない）。

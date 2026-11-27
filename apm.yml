@@ -1,6 +1,6 @@
 name: agent-context
-version: 0.4.0
-description: エージェント横断で使う GitHub 開発ワークフロー系スキルの宣言型メタパッケージ＋自前スキル
+version: 0.5.0
+description: エージェント横断で使うスキルの宣言型メタパッケージ＋自前スキル
 author: Yuya Takeyama
 license: MIT
 
@@ -29,6 +29,8 @@ dependencies:
     - sapegin/dotfiles/ai/skills/github                        # gh CLI の操作規律
     # --- リリース ---
     - github/awesome-copilot/skills/github-release             # SemVer + Keep a Changelog
+    # --- 日本語文章 ---
+    - nanaism/yomiyasu/skills/yomiyasu#v3.4.1                  # AI生成日本語の推敲。意味保持優先・lint/diff検査つき
   mcp: []
 
 includes: auto
