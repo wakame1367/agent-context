@@ -61,9 +61,13 @@ apm install wakame1367/agent-context --target agent-skills
 | gh CLI 規律 | `github` | 同上 |
 | リリース | `github-release` | github/awesome-copilot |
 | 日本語推敲 | `yomiyasu` | nanaism/yomiyasu（MIT、v3.4.1 に pin） |
+| 調査・文献探索 | `imozuru` | MaryCache/imozuru（MIT、v2.3.3 に pin） |
 
 `sapegin/dotfiles` のスキルはライセンス表記がないため**参照利用のみ**
 （このリポジトリにコードはコピーしない）。
+
+`imozuru` v2.3.3 ではスキル配布物に LICENSE ファイルが同梱されない。
+upstream PR MaryCache/imozuru#27 がリリースに入り次第、pin を更新する。
 
 ## スキルの追加・削除
 
